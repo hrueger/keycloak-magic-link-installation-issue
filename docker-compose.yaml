@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  keycloak:
+    image: docker.io/bitnami/keycloak:22.0.1
+    volumes:
+      - ./target/keycloak-magic-link-0.17-SNAPSHOT.jar:/opt/bitnami/keycloak/providers/keycloak-magic-link.jar
+    environment:
+      KEYCLOAK_DATABASE_VENDOR: dev-mem
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - 8089:8080
